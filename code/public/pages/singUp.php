@@ -14,9 +14,9 @@
     <section class="GAUCHE">
         <form action="../../app/controllers/sing.php" class="GAUCHE__Form" method="POST">
             <i class='bx bxs-image-add'></i>
-            <input type="file" name="P_profil" class="GAUCHE__input GAUCHE__input--p-p ">
-            <input type="Nom" name="Nom" class="GAUCHE__input" placeholder=" nom">
-            <input type="Prenom" name="Prenom" class="GAUCHE__input" placeholder=" prenom ">
+            <input type="file" name="P_prophile" class="GAUCHE__input GAUCHE__input--p-p ">
+            <input type="Nom" name="nom" class="GAUCHE__input" placeholder=" nom">
+            <input type="Prenom" name="prenom" class="GAUCHE__input" placeholder=" prenom ">
             <input type="Gmail" name="Gmail" class="GAUCHE__input" placeholder="your Email">
             <input type="password" name="password" class="GAUCHE__input" placeholder="your password">
             <input type="password" name="C_Password" class="GAUCHE__input" placeholder="confirmer your Password">

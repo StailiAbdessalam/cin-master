@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require_once "../../app/controllers/dashbord.php";
-
-?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../style/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style/index.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>cine master</title>
 </head>
 
 <body>
+
     <header>
         <div class="nav-bar">
             <div class="nav-bar__logo">
@@ -24,7 +21,7 @@ require_once "../../app/controllers/dashbord.php";
             </div>
             <div class="nav-bar__profil">
                 <img src="../img/OIP.jfif" alt="">
-                <p><a href="./login.php"></a></p>
+                <p><a href="./login.php">  </a></p>
             </div>
         </div>
         <div class="nav-choix">
@@ -55,35 +52,26 @@ require_once "../../app/controllers/dashbord.php";
             </div>
         </div>
     </header>
-
-
-
-    <main class="film">
-        <?php foreach ($filmdb as $fil) : ?>
-            <div class="film__post">
-                <img src="../../app/image_user/<?= $fil['image_url'] ?>" alt="">
-                <h3><?= $fil["Nam"]; ?></h3>
-            </div>
-        <?php endforeach; ?>
-
+    <main>
+        <form action="../../app/controllers/admin.php" class="admin__hh" method="POST">
+            <input type="text" name="Gmail" id="" placeholder="Gmail">
+            <input type="password" name="password" id="" placeholder="password">
+            <input type="submit" name="submit" id="">
+        </form>
 
     </main>
-
-
-
-    <footer class="py-3 mt-2" style="  background-color: #370a3fe1;" style="color: #ffffff;">
+    <footer class="py-3 mt-2" style="color:#ffffff">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-light">Film</a></li>
-            <li class="nav-item"><a href="./post.php" class="nav-link px-2 text-light">Post</a></li>
-            <li class="nav-item"><a href="./admin.php" class="nav-link px-2 text-light ">Admin</a></li>
-            <li class="nav-item"><a href="./login.php" class="nav-link px-2 text-light">Quitter</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
+            <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-muted">Film</a></li>
+            <li class="nav-item"><a href="./post.php" class="nav-link px-2 text-muted">Post</a></li>
+            <li class="nav-item"><a href="./admin.php" class="nav-link px-2 text-muted">Admin</a></li>
+            <li class="nav-item"><a href="./login.php" class="nav-link px-2 text-muted">Quitter</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
         </ul>
-        <p class="text-center text-light">© 2021 Company, Inc</p>
+        <p class="text-center text-muted">© 2021 Company, Inc</p>
     </footer>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

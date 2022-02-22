@@ -77,16 +77,13 @@
 .nav-choix {
   width: 100%;
   height: 90px;
-  background-color: #370a3fe1;
+  background-color: #47194e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
   border-bottom: solid 4px white;
 }
 
@@ -126,31 +123,22 @@
   font-family: "Poppins", sans-serif;
 }
 
-.film {
-  padding: 17px 0px;
-  width: 100;
-  height: 62vh;
-  background-image: url(../img/cinemaitaliano.jpg);
-  background-size: cover;
+main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: 8%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow-y: scroll;
 }
 
-.film .film__post {
-  background-color: #ffffff;
-  width: 18%;
-  height: 250px;
+.post {
+  width: 100%;
+  height: 120%;
+  background-color: #52065f6e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,20 +149,109 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 20px;
-  border-radius: 10px;
+  row-gap: 10px;
+  padding-top: 20px;
 }
 
-.film .film__post img {
+.post .post__indi {
+  width: 80%;
+  height: 250px;
+  background-color: #ffffff;
+}
+
+.post .post__indi form {
   width: 100%;
-  height: 240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.post .post__indi form select,
+.post .post__indi form input {
+  height: 50px;
+  background-color: #ffffff;
+  outline: none;
+  border: 2px solid #47194e;
+}
+
+.post .post__indi form #hh {
+  background-color: #47194e;
+  color: white;
+  border: 1px solid white;
+}
+
+.post .post__post-user {
+  margin-top: 60px;
+  width: 40%;
+  height: 550px;
+  background-color: #ffffff;
   border-radius: 10px;
 }
 
-.film .film__post h3 {
-  font-size: 18px;
-  color: #000000;
-  font-family: "Poppins", sans-serif;
+.post .post__post-user .post__header {
+  width: 100%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.post .post__post-user .post__header i {
+  font-size: 70px;
+}
+
+.post .post__post-user .post__header .post__nom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.post .post__post-user .post__dt-pp {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: #47194e;
+}
+
+.post .post__contenu {
+  width: 100%;
+  height: 70%;
+  background-color: aqua;
+}
+
+.post .post__contenu img {
+  width: 100%;
+  height: 100%;
+}
+
+.post .post__footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.post .post__footer i {
+  font-size: 50px;
 }
 
 @media (max-width: 666px) {
@@ -207,14 +284,5 @@
   .post .post__footer i {
     font-size: 38px;
   }
-  .film {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    padding-top: 32%;
-    padding-bottom: 65px;
-  }
-  .film .film__post {
-    width: 90%;
-  }
 }
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=post.css.map */

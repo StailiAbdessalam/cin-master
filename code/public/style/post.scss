@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 .nav-bar {
-
   width: 100%;
   height: 130px;
   background-color: white;
@@ -46,10 +45,9 @@
 .nav-choix {
   width: 100%;
   height: 90px;
-  background-color: #370a3fe1;
+  background-color: #47194e;
   display: flex;
   justify-content: center;
-  align-items: baseline;
   border-bottom: solid 4px white;
   .nav-bar__icon {
     width: 8%;
@@ -75,37 +73,88 @@
     }
   }
 }
-
-.film {
-padding: 17px 0px;
-  width: 100;
-  height: 62vh;
-  background-image: url(../img/cinemaitaliano.jpg);
-  background-size: cover;
+main {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8%;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
-  .film__post {
-    background-color: #ffffff;
-    width: 18%;
+}
+.post {
+  width: 100%;
+  height: 120%;
+  background-color: #52065f6e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  padding-top: 20px;
+  .post__indi {
+    width: 80%;
     height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    background-color: #ffffff;
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      select,
+      input {
+        height: 50px;
+        background-color: #ffffff;
+        outline: none;
+        border: 2px solid #47194e;
+      }
+      #hh {
+        background-color: #47194e;
+        color: white;
+        border: 1px solid white;
+      }
+    }
+  }
+  .post__post-user {
+    margin-top: 60px;
+    width: 40%;
+    height: 550px;
+    background-color: #ffffff;
     border-radius: 10px;
+    .post__header {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        font-size: 70px;
+      }
+      .post__nom {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+    .post__dt-pp {
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      background-color: #47194e;
+    }
+  }
+  .post__contenu {
+    width: 100%;
+    height: 70%;
+    background-color: aqua;
     img {
       width: 100%;
-      height: 240px;
-      border-radius: 10px;
+      height: 100%;
     }
-    h3 {
-      font-size: 18px;
-      color: #000000;
-      font-family: "Poppins", sans-serif;
+  }
+  .post__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    i {
+      font-size: 50px;
     }
   }
 }
@@ -136,12 +185,5 @@ padding: 17px 0px;
   .post .post__footer i {
     font-size: 38px;
   }
-  .film {
-    flex-wrap: wrap;
-    padding-top: 32%;
-    padding-bottom: 65px;
-    .film__post {
-      width: 90%;
-    }
-  }
+  
 }

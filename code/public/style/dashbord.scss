@@ -3,8 +3,8 @@
   margin: 0%;
   box-sizing: border-box;
 }
-.nav-bar {
 
+.nav-bar {
   width: 100%;
   height: 130px;
   background-color: white;
@@ -46,10 +46,11 @@
 .nav-choix {
   width: 100%;
   height: 90px;
-  background-color: #370a3fe1;
+  background-color: #47194e;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   display: flex;
   justify-content: center;
-  align-items: baseline;
   border-bottom: solid 4px white;
   .nav-bar__icon {
     width: 8%;
@@ -66,82 +67,35 @@
       color: #4e2355;
       cursor: pointer;
     }
-    p,
-    a {
+    p {
       font-size: 18px;
-      text-decoration: none;
       color: #ffffff;
       font-family: "Poppins", sans-serif;
     }
   }
 }
 
-.film {
-padding: 17px 0px;
-  width: 100;
-  height: 62vh;
-  background-image: url(../img/cinemaitaliano.jpg);
-  background-size: cover;
+.form {
+  width: 100%;
+  height: 100vh;
+  background-color: #421549;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8%;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
-  .film__post {
-    background-color: #ffffff;
-    width: 18%;
-    height: 250px;
+  form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    img {
-      width: 100%;
-      height: 240px;
-      border-radius: 10px;
-    }
-    h3 {
-      font-size: 18px;
-      color: #000000;
-      font-family: "Poppins", sans-serif;
-    }
-  }
-}
-
-@media (max-width: 666px) {
-  .nav-bar {
-    display: none;
-  }
-  .nav-choix {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 0%;
-  }
-  .post .post__post-user {
-    width: 96%;
-    height: 380px;
-    .post__dt-pp {
-      width: 60px;
+    width: 70%;
+    gap: 10px;
+    input {
+      width: 80%;
       height: 60px;
-    }
-  }
-  .post .post__footer i {
-    font-size: 38px;
-  }
-  .post .post__footer i {
-    font-size: 38px;
-  }
-  .film {
-    flex-wrap: wrap;
-    padding-top: 32%;
-    padding-bottom: 65px;
-    .film__post {
-      width: 90%;
+      outline: none;
+      border-radius: 12px;
+      border: none;
+      font-size: 24px;
     }
   }
 }

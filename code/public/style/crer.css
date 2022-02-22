@@ -111,7 +111,7 @@ body {
   margin-right: -304px;
 }
 
-@media (max-width: 376px) {
+@media (max-width: 767px) {
   .GAUCHE {
     width: 0%;
   }

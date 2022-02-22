@@ -3,6 +3,7 @@
   margin: 0%;
   box-sizing: border-box;
 }
+
 .nav-bar {
 
   width: 100%;
@@ -46,7 +47,7 @@
 .nav-choix {
   width: 100%;
   height: 90px;
-  background-color: #370a3fe1;
+  background-color: #47194e;
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -75,41 +76,31 @@
     }
   }
 }
-
-.film {
-padding: 17px 0px;
-  width: 100;
-  height: 62vh;
-  background-image: url(../img/cinemaitaliano.jpg);
-  background-size: cover;
+main {
+  width: 100%;
+  height: 80vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8%;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
-  .film__post {
-    background-color: #ffffff;
-    width: 18%;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    img {
-      width: 100%;
-      height: 240px;
-      border-radius: 10px;
-    }
-    h3 {
-      font-size: 18px;
-      color: #000000;
-      font-family: "Poppins", sans-serif;
-    }
+  background-image: url(../img/859d3cb7fc88962638b112a60a60fa26.jpg);
+}
+.admin__hh {
+  width: 80%;
+  background-color: #47194ed5;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  gap: 8px;
+  input {
+    width: 60%;
+    height: 40px;
+    outline: none;
+    border-radius: 5px;
   }
 }
-
 @media (max-width: 666px) {
   .nav-bar {
     display: none;
@@ -133,15 +124,7 @@ padding: 17px 0px;
   .post .post__footer i {
     font-size: 38px;
   }
-  .post .post__footer i {
-    font-size: 38px;
-  }
-  .film {
-    flex-wrap: wrap;
-    padding-top: 32%;
-    padding-bottom: 65px;
-    .film__post {
-      width: 90%;
-    }
+  main {
+    height: 100vh;
   }
 }
