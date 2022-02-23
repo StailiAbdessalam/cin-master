@@ -65,8 +65,11 @@
 }
 
 .nav-bar__profil img {
-  width: 78px;
+  margin-top: 19px;
+  width: 140px;
+  height: 140px;
   border-radius: 100%;
+  border: 1px solid black;
 }
 
 .nav-bar__profil p {

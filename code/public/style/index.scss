@@ -24,7 +24,7 @@
     font-size: 22px;
     font-family: "Poppins", sans-serif;
   }
-  span {
+  span{
     color: #a85eb4;
   }
 }
@@ -34,12 +34,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
-    width: 78px;
+  .ab{
+    margin-top: 19px;
+    width: 140px;
+    height: 140px;
     border-radius: 100%;
+    border: 1px solid black;
   }
   p {
-    font-size: 22px;
+    font-size: 18px;
     font-family: "Poppins", sans-serif;
   }
 }
@@ -59,7 +62,7 @@
     justify-content: center;
     align-items: center;
     i {
-      font-size: 66px;
+      font-size: 40px;
     }
     i:hover {
       background-color: #2e1655;
@@ -109,12 +112,16 @@ padding: 17px 0px;
     }
   }
 }
+#respo{
+ background-color: #370a3fe1;
+}
 
 @media (max-width: 666px) {
   .nav-bar {
     display: none;
   }
   .nav-choix {
+    background-color: #370a3f;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -140,8 +147,14 @@ padding: 17px 0px;
     flex-wrap: wrap;
     padding-top: 32%;
     padding-bottom: 65px;
+    height: 81.5vh;
     .film__post {
       width: 90%;
     }
+  }
+  #respo{
+    width: 100%;
+  background-color: #370a3f;
+
   }
 }

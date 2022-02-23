@@ -64,13 +64,16 @@
           align-items: center;
 }
 
-.nav-bar__profil img {
-  width: 78px;
+.nav-bar__profil .ab {
+  margin-top: 19px;
+  width: 140px;
+  height: 140px;
   border-radius: 100%;
+  border: 1px solid black;
 }
 
 .nav-bar__profil p {
-  font-size: 22px;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -109,7 +112,7 @@
 }
 
 .nav-choix .nav-bar__icon i {
-  font-size: 66px;
+  font-size: 40px;
 }
 
 .nav-choix .nav-bar__icon i:hover {
@@ -177,11 +180,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+#respo {
+  background-color: #370a3fe1;
+}
+
 @media (max-width: 666px) {
   .nav-bar {
     display: none;
   }
   .nav-choix {
+    background-color: #370a3f;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -212,9 +220,14 @@
         flex-wrap: wrap;
     padding-top: 32%;
     padding-bottom: 65px;
+    height: 81.5vh;
   }
   .film .film__post {
     width: 90%;
+  }
+  #respo {
+    width: 100%;
+    background-color: #370a3f;
   }
 }
 /*# sourceMappingURL=index.css.map */

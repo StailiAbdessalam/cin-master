@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
 }
 
 $admi = new DataName("admin");
-$admin = $admi->selectAll();
+$admin = $admi->selectADmin();
 foreach ($admin as $oo) {
     if ($oo['Gmail'] == $email && $oo['password'] == $Password) {
         header("location:../../public/pages/dashbord.php");

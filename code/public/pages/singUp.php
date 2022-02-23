@@ -12,11 +12,11 @@
 
 <body>
     <section class="GAUCHE">
-        <form action="../../app/controllers/sing.php" class="GAUCHE__Form" method="POST">
+        <form action="../../app/controllers/sing.php" class="GAUCHE__Form" method="POST" enctype="multipart/form-data">
             <i class='bx bxs-image-add'></i>
             <input type="file" name="P_prophile" class="GAUCHE__input GAUCHE__input--p-p ">
-            <input type="Nom" name="nom" class="GAUCHE__input" placeholder=" nom">
-            <input type="Prenom" name="prenom" class="GAUCHE__input" placeholder=" prenom ">
+            <input type="text" name="nom" class="GAUCHE__input" placeholder=" nom">
+            <input type="text" name="prenom" class="GAUCHE__input" placeholder=" prenom ">
             <input type="Gmail" name="Gmail" class="GAUCHE__input" placeholder="your Email">
             <input type="password" name="password" class="GAUCHE__input" placeholder="your password">
             <input type="password" name="C_Password" class="GAUCHE__input" placeholder="confirmer your Password">

@@ -10,12 +10,7 @@ function array_remove($selections, $arr)
     }
     return $result;
 }
-
 if (isset($_POST['partager'], $_FILES['photo'])) {
-
-    echo "<pre>";
-    print_r($_FILES['photo']);
-    echo "</pre>";
 
     $imag_name = $_FILES['photo']['name'];
     $imag_size = $_FILES['photo']['size'];
@@ -40,7 +35,15 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
         }
     }
 }
-
-$newpost =new DataName('posts');
-
+$newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
+$userIds = [];
+$usersData = new DataName('user_');
+foreach ($les_posts as $post) {
+    $userIds[$post["user_id"]] = true;
+}
+$users = $usersData->getByIds(array_keys($userIds));
+$usersMapById = [];
+foreach ($users as $user) {
+    $usersMapById[$user->id] = $user;
+}

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
+session_start();
 require_once "../../app/controllers/dashbord.php";
+// if(!isset($_SESSION['id'],$_SESSION['img'])){
+// header("Location: ../../public/pages/login.php");
+// }
 
 ?>
 
@@ -23,8 +28,8 @@ require_once "../../app/controllers/dashbord.php";
                 <p>ciné<span>Master</span></p>
             </div>
             <div class="nav-bar__profil">
-                <img src="../img/OIP.jfif" alt="">
-                <p><a href="./login.php"></a></p>
+                <img src="<?= "../../app/prophile_img/" . $_SESSION['img'] ?>" class="ab">
+                <p><a><?= $_SESSION["nom"]." ". $_SESSION["prenom"]?></a></p>
             </div>
         </div>
         <div class="nav-choix">
@@ -48,10 +53,10 @@ require_once "../../app/controllers/dashbord.php";
                 <p>ADMIN</p>
             </div>
             <div class="nav-bar__icon">
-                <a href="./login.php">
+                <a href="../../app/controllers/logout.php">
                     <i class='bx bx-log-out' style='color:#ffffff'></i>
                 </a>
-                <a href="./login.php"> Quiter</a>
+                <a href="../../app/controllers/logout.php"> Quiter</a>
             </div>
         </div>
     </header>
@@ -71,7 +76,7 @@ require_once "../../app/controllers/dashbord.php";
 
 
 
-    <footer class="py-3 mt-2" style="  background-color: #370a3fe1;" style="color: #ffffff;">
+    <footer class="py-3 mt-2"  id="respo">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-light">Film</a></li>
             <li class="nav-item"><a href="./post.php" class="nav-link px-2 text-light">Post</a></li>

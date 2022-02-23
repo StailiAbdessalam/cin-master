@@ -10,10 +10,8 @@ function array_remove($selections, $arr)
     return $result;
 }
 
-if (isset($_POST['submit']) && isset($_FILES['image_url'])) {
-    echo "<pre>";
-    print_r($_FILES['image_url']);
-    echo "</pre>";
+if (isset($_POST['submit'],$_FILES['image_url'])) {
+   
     $imag_name = $_FILES['image_url']['name'];
     $imag_size = $_FILES['image_url']['size'];
     $tmp_name = $_FILES['image_url']['tmp_name'];

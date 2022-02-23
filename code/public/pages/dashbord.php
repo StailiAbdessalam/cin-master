@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
                 <p>ciné<span>Master</span></p>
             </div>
             <div class="nav-bar__profil">
-                <img src="../img/OIP.jfif" alt="">
-                <p><a href="./login.php"> Abdessalam staili</a></p>
+            <img src="<?= "../../app/prophile_img/" . $_SESSION['img'] ?>">
+            <p><a><?= $_SESSION["nom"]." ". $_SESSION["prenom"]?></a></p>
             </div>
         </div>
         <div class="nav-choix">
@@ -52,16 +52,17 @@
     </header>
     <div class="form">
         <form action="../../app/controllers/dashbord.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image_url" >
+            <input type="file" name="image_url">
             <input type="text" name="Nam" id="" placeholder="name">
             <input type="number" name="vues" id="" placeholder="vieus">
             <input type="date" name="date" id="" placeholder="date">
             <input type="submit" name="submit" id="">
+        </form>
+
     </div>
 
 
 
-    </form>
 </body>
 
 </html>

@@ -1,23 +1,28 @@
 <?php
-
 require_once "../../app/models/Database.php";
+session_start();
+
+
 
 if (isset($_POST['submit'])) {
     $email = $_POST['Gmail'];
     $Password = $_POST['Password'];
     $correct = false;
     $log = new DataName("user_");
-    $user = $log->selectAll();
-    foreach ($user as $oo) {
-        if ($oo['Gmail'] == $email && $oo['password'] == $Password) {
+    $user = $log->selectByEmail($email);
+
+    if($user && $user["password"] === $_POST["Password"]){
+        if(!isset($_SESSION)){
             session_start();
-            $_SESSION['id']=$oo['id'];
-            header("location:../../public/pages/index.php");
-            $correct = true;
-            break;
         }
+        $_SESSION["img"] = $user["P_prophile"];
+        $_SESSION["id"] = $user["id"];
+        $_SESSION["nom"] = $user["nom"];
+        $_SESSION["prenom"] = $user["prenom"];
+        header("location:../../public/pages/index.php");
+        return;
     }
-}
-if($correct==false){
+    
     header("location:../../public/pages/login.php");
 }
+

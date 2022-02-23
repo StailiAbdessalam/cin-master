@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start(); ?>
 
 <head>
     <meta charset="UTF-8">
@@ -20,8 +21,8 @@
                 <p>ciné<span>Master</span></p>
             </div>
             <div class="nav-bar__profil">
-                <img src="../img/OIP.jfif" alt="">
-                <p><a href="./login.php">  </a></p>
+                <img src="<?= "../../app/prophile_img/" . $_SESSION['img'] ?>">
+                <p><a><?= $_SESSION["nom"] . " " . $_SESSION["prenom"] ?></a></p>
             </div>
         </div>
         <div class="nav-choix">
@@ -60,15 +61,15 @@
         </form>
 
     </main>
-    <footer class="py-3 mt-2" style="color:#ffffff">
+    <footer class="py-3 mt-2" style="color:#ffffff" id="respo">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-muted">Film</a></li>
-            <li class="nav-item"><a href="./post.php" class="nav-link px-2 text-muted">Post</a></li>
-            <li class="nav-item"><a href="./admin.php" class="nav-link px-2 text-muted">Admin</a></li>
-            <li class="nav-item"><a href="./login.php" class="nav-link px-2 text-muted">Quitter</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-light">Film</a></li>
+            <li class="nav-item"><a href="./post.php" class="nav-link px-2 text-light">Post</a></li>
+            <li class="nav-item"><a href="./admin.php" class="nav-link px-2 text-light">Admin</a></li>
+            <li class="nav-item"><a href="./login.php" class="nav-link px-2 text-light">Quitter</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
         </ul>
-        <p class="text-center text-muted">© 2021 Company, Inc</p>
+        <p class="text-center text-light">© 2021 Company, Inc</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
