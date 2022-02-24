@@ -69,7 +69,6 @@
   width: 140px;
   height: 140px;
   border-radius: 100%;
-  border: 1px solid black;
 }
 
 .nav-bar__profil p {
@@ -111,7 +110,7 @@
 }
 
 .nav-choix .nav-bar__icon i {
-  font-size: 66px;
+  font-size: 40px;
 }
 
 .nav-choix .nav-bar__icon i:hover {
@@ -128,8 +127,9 @@
 
 .form {
   width: 100%;
-  height: 100vh;
-  background-color: #421549;
+  height: 80vh;
+  background-image: url("../img/back.png");
+  background-size: contain;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,16 +155,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #47194e81;
+  border-radius: 10px;
   width: 70%;
-  gap: 10px;
+  height: 50%;
+  gap: 5px;
 }
 
 .form form input {
   width: 80%;
   height: 60px;
   outline: none;
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
-  font-size: 24px;
+  font-size: 19px;
+  background-color: #ffffff;
+}
+
+.form form ::-webkit-file-upload-button {
+  background-color: #47194e;
+  padding: 1em;
+  color: #ffffff;
+  cursor: pointer;
 }
 /*# sourceMappingURL=dashbord.css.map */

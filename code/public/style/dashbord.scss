@@ -39,7 +39,6 @@
     width: 140px;
     height: 140px;
     border-radius: 100%;
-    border: 1px solid black;
   }
   p {
     font-size: 22px;
@@ -63,7 +62,7 @@
     justify-content: center;
     align-items: center;
     i {
-      font-size: 66px;
+      font-size: 40px;
     }
     i:hover {
       background-color: #2e1655;
@@ -80,8 +79,9 @@
 
 .form {
   width: 100%;
-  height: 100vh;
-  background-color: #421549;
+  height: 80vh;
+  background-image: url("../img/back.png");
+  background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,15 +90,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #47194e81;
+    border-radius: 10px;
     width: 70%;
-    gap: 10px;
+    height: 50%;
+    gap: 5px;
     input {
       width: 80%;
       height: 60px;
       outline: none;
-      border-radius: 12px;
+      border-radius: 8px;
       border: none;
-      font-size: 24px;
+      font-size: 19px;
+      background-color: #ffffff;
+    }
+    ::-webkit-file-upload-button {
+      background-color: #47194e;
+      padding: 1em;
+      color: #ffffff;
+      cursor: pointer;
     }
   }
 }

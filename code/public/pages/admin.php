@@ -41,9 +41,9 @@
 
             <div class="nav-bar__icon">
                 <a href="./admin.php">
-                    <i class='bx bx-color-fill' style='color:#ffffff'></i>
+                    <i class='bx bx-shield-alt' style='color:#ffffff'></i>
                 </a>
-                <p>ADMIN</p>
+                <p>Admin</p>
             </div>
             <div class="nav-bar__icon">
                 <a href="./login.php">

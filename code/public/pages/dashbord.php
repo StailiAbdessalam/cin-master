@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +20,8 @@
                 <p>ciné<span>Master</span></p>
             </div>
             <div class="nav-bar__profil">
-            <img src="<?= "../../app/prophile_img/" . $_SESSION['img'] ?>">
-            <p><a><?= $_SESSION["nom"]." ". $_SESSION["prenom"]?></a></p>
+                <img src="<?= "../../app/prophile_img/" . $_SESSION['img'] ?>">
+                <p><a><?= $_SESSION["nom"] . " " . $_SESSION["prenom"] ?></a></p>
             </div>
         </div>
         <div class="nav-choix">
@@ -37,16 +38,16 @@
                 <p>Post</p>
             </div>
             <div class="nav-bar__icon">
-                <a href="">
-                    <i class='bx bxs-user-circle' style='color:#ffffff'></i>
+                <a href="./admin.php">
+                    <i class='bx bx-shield-alt' style='color:#ffffff'></i>
                 </a>
-                <p>Profile</p>
+                <p>Admin</p>
             </div>
             <div class="nav-bar__icon">
-                <a href="./admin.php">
-                    <i class='bx bx-color-fill' style='color:#ffffff'></i>
+                <a href="./login.php">
+                    <i class='bx bx-log-out' style='color:#ffffff'></i>
                 </a>
-                <p>ADMIN</p>
+                <p>Quiter</p>
             </div>
         </div>
     </header>
