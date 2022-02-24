@@ -23,8 +23,8 @@
         <div class="GAUCHE__Title">s’identifier dans&nbsp; <span class="GAUCHE__Spa">cine master</span> </div>
         <img class="GAUCHE__Logo" src="../img/OIP-removebg-preview 1.png" alt="">
         <form action="../../app/controllers/Login.php" class="GAUCHE__Form" method="POST">
-            <input type="Gmail" name="Gmail" class="GAUCHE__input" placeholder="Entrer your Email">
-            <input type="password" name="Password" class="GAUCHE__input" placeholder="Entrer your Password">
+            <input type="email" name="Gmail" class="GAUCHE__input" placeholder="Entrer your Email" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$">
+            <input type="password" name="Password" class="GAUCHE__input" placeholder="Entrer your Password" required>
             <input type="submit" name="submit" value="Login" class="GAUCHE__input GAUCHE__input--sub">
             <a href="./singUp.php" class="GAUCHE__creer">
                 <div>creer un compte</div>

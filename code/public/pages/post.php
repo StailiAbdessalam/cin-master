@@ -138,10 +138,10 @@
                                     </div>
                                 </div>
                                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
-                                    <img class='w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer' alt='User avatar' src="../../app/prophile_img/<?= $_SESSION['img']?>">
+                                    <img class='w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer' alt='User avatar' src="../../app/prophile_img/<?= $_SESSION['img'] ?>">
                                     <form action="../../app/controllers/comments.php" method="POST" class="commentss">
                                         <input type="hidden" name="user_id" id="">
-                                        <input type="hidden" name="post_id" id="" value="<?= $post["id"]?>">
+                                        <input type="hidden" name="post_id" id="" value="<?= $post["id"] ?>">
                                         <input type="text" name="content" required class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment...">
                                         <div class="comm">voir comment</div>
                                     </form>
@@ -149,7 +149,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="tach">
                         <?php foreach ($comments as $commt) : ?>
