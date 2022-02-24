@@ -192,6 +192,13 @@ main {
   border-radius: 10px;
 }
 
+.post .post__indi form ::-webkit-file-upload-button {
+  background-color: #47194e;
+  padding: 12px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .post .post__indi form #hh {
   background-color: #47194e;
   color: white;

@@ -10,9 +10,7 @@ function array_remove($selections, $arr)
     }
     return $result;
 }
-
 if (isset($_POST['partager'], $_FILES['photo'])) {
-
     $imag_name = $_FILES['photo']['name'];
     $imag_size = $_FILES['photo']['size'];
     $tmp_name = $_FILES['photo']['tmp_name'];
@@ -40,6 +38,30 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
 $newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
 
+// $userIds = [];
+// $postIds = [];
+// $usersData = new DataName('user_');
+// $commentsData = new DataName('comments');
+// foreach ($les_posts as $post) {
+//     // $postIds[$post["id"]] = true;
+//     $userIds[$post["user_id"]] = true;
+// }
+// $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
+// $commentsListByPostId = [];
+// foreach ($comments as $comment) {
+//     $postId = $comment->post_id;
+//     $userId = $comment->user_id;
+//     $userIds[$userId] = true;
+//     if (!isset($commentsListByPostId[$postId])) {
+//         $commentsListByPostId[$postId] = [];
+//     }
+//     $commentsListByPostId[$postId][] = $comment;
+// }
+// $users = $usersData->getByIds(array_keys($userIds));
+// $usersMapById = [];
+// foreach ($users as $user) {
+//     $usersMapById[$user->id] = $user;
+// }
 
 $userIds = [];
 $usersData = new DataName('user_');

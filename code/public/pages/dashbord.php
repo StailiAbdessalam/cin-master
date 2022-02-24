@@ -59,7 +59,6 @@
             <input type="date" name="date" id="" placeholder="date">
             <input type="submit" name="submit" id="">
         </form>
-
     </div>
 
 

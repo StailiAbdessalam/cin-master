@@ -112,6 +112,12 @@ main {
         border: 1px solid #47194e;
         border-radius: 10px;
       }
+      ::-webkit-file-upload-button {
+        background-color: #47194e;
+        padding: 12px;
+        color: #ffffff;
+        cursor: pointer;
+      }
       #hh {
         background-color: #47194e;
         color: white;
@@ -256,6 +262,7 @@ main {
   input {
     width: 70%;
   }
+  
   .comm {
     background-color: #47194e;
     color: #ffffff;

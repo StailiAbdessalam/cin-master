@@ -15,6 +15,10 @@
 <body>
     <?php require_once "../../app/controllers/post.php";
     require_once "../../app/controllers/comments.php";
+
+
+
+
     ?>
 
     <header>
@@ -77,8 +81,10 @@
 
 
 
-            <?php foreach ($les_posts as $post) : ?>
-                <?php $user = $usersMapById[$post["user_id"]]; ?>
+            <?php foreach ($les_posts as $post) : 
+                $user = $usersMapById[$post["user_id"]];
+                // $commentList = $commentsListByPostId[$post["id"]];
+                ?>
                 <section class="prent">
                     <div class='flex max-w-xl my-6 bg-white shadow-md rounded-lg overflow-hidden mx-10 w-screen'>
                         <div class='flex items-center w-full'>
@@ -151,19 +157,21 @@
                     </div>
 
                     <div class="tach">
-                        <?php foreach ($comments as $commt) : ?>
+                        <?php foreach ($array_comments as $comment) : 
+                            // $commentor = $usersMapById[$comment["user_id"]];
+                            ?>
                             <div class="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full" id="hhh">
                                 <div class="relative flex gap-4">
-                                    <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
+                                    <img src="../../app/prophile_img/<?= $comment['P_prophile']?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
                                     <div class="flex flex-col w-full">
                                         <div class="flex flex-row justify-between">
-                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden">COMMENTOR</p>
+                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden"><?= $comment['nom'].$comment['prenom']  ?></p>
                                             <a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a>
                                         </div>
-                                        <p class="text-gray-400 text-sm">20 April 2022, at 14:88 PM</p>
+                                        <p class="text-gray-400 text-sm"><?= $comment['created_at'] ?></p>
                                     </div>
                                 </div>
-                                <p class="-mt-4 text-gray-500"><?= $commt['content'] ?></p>
+                                <p class="-mt-4 text-gray-500"><?= $comment['content'] ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div>
