@@ -38,8 +38,6 @@
     width: 140px;
     height: 140px;
     border-radius: 100%;
-
-
   }
   p {
     font-size: 22px;
@@ -283,6 +281,6 @@ main {
   border-radius: 8px;
 }
 .agogo {
-  display: flex;
+  display: block;
   flex-direction: column;
 }

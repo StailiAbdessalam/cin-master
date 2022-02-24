@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <?php require "../../app/controllers/post.php";
-
+    <?php require_once "../../app/controllers/post.php";
+    require_once "../../app/controllers/comments.php";
     ?>
 
     <header>
@@ -139,8 +139,10 @@
                                 </div>
                                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
                                     <img class='w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer' alt='User avatar' src="../../app/prophile_img/<?= $user->P_prophile ?>">
-                                    <form action="" class="commentss">
-                                        <input type="search" class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
+                                    <form action="../../app/controllers/comments.php" method="POST" class="commentss">
+                                        <input type="hidden" name="user_id" id="">
+                                        <input type="hidden" name="post_id" id="" value="<?= $post["id"]?>">
+                                        <input type="text" name="content" required class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment...">
                                         <div class="comm">voir comment</div>
                                     </form>
                                 </div>
@@ -150,19 +152,21 @@
 
 
                     <div class="tach">
-                        <div class="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full">
-                            <div class="relative flex gap-4">
-                                <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
-                                <div class="flex flex-col w-full">
-                                    <div class="flex flex-row justify-between">
-                                        <p class="relative text-xl whitespace-nowrap truncate overflow-hidden">COMMENTOR</p>
-                                        <a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a>
+                        <?php foreach ($comments as $commt) : ?>
+                            <div class="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full" id="hhh">
+                                <div class="relative flex gap-4">
+                                    <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
+                                    <div class="flex flex-col w-full">
+                                        <div class="flex flex-row justify-between">
+                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden">COMMENTOR</p>
+                                            <a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">20 April 2022, at 14:88 PM</p>
                                     </div>
-                                    <p class="text-gray-400 text-sm">20 April 2022, at 14:88 PM</p>
                                 </div>
+                                <p class="-mt-4 text-gray-500"><?= $commt['content'] ?></p>
                             </div>
-                            <p class="-mt-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Maxime quisquam vero adipisci beatae voluptas dolor ame.</p>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </section>
             <?php endforeach; ?>
