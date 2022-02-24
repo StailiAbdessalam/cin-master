@@ -45,7 +45,8 @@ $userIds = [];
 $usersData = new DataName('user_');
 foreach ($les_posts as $post) {
     $userIds[$post["user_id"]] = true;
-}
+} 
+
 $users = $usersData->getByIds(array_keys($userIds));
 $usersMapById = [];
 foreach ($users as $user) {
