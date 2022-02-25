@@ -9,4 +9,7 @@ if(isset($_POST['content'])){
     $new_comment->insert($_POST);
     header("Location:../../public/pages/post.php");
  
-} 
+}  
+ 
+ 
+ 
