@@ -14,11 +14,7 @@
 
 <body>
     <?php require_once "../../app/controllers/post.php";
-    require_once "../../app/controllers/comments.php";
-
-
-
-
+    // require_once "../../app/controllers/comments.php";
     ?>
 
     <header>
@@ -83,7 +79,7 @@
 
             <?php foreach ($les_posts as $post) : 
                 $user = $usersMapById[$post["user_id"]];
-                // $commentList = $commentsListByPostId[$post["id"]];
+                $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
                 ?>
                 <section class="prent">
                     <div class='flex max-w-xl my-6 bg-white shadow-md rounded-lg overflow-hidden mx-10 w-screen'>
@@ -126,7 +122,7 @@
                                         </span>
                                         <span class="transition ease-out duration-300 hover:bg-blue-500 bg-blue-600 h-8 px-2 py-2 text-center rounded-full text-gray-100 cursor-pointer">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                <path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                             </svg>
                                         </span>
                                     </div>
@@ -157,21 +153,21 @@
                     </div>
 
                     <div class="tach">
-                        <?php foreach ($array_comments as $comment) : 
-                            // $commentor = $usersMapById[$comment["user_id"]];
+                        <?php foreach ($commentList as $comment) : 
+                            $commentor = $usersMapById[$comment->user_id];
                             ?>
                             <div class="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full" id="hhh">
                                 <div class="relative flex gap-4">
-                                    <img src="../../app/prophile_img/<?= $comment['P_prophile']?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
+                                    <img src="../../app/prophile_img/<?= $commentor->P_prophile?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
                                     <div class="flex flex-col w-full">
                                         <div class="flex flex-row justify-between">
-                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden"><?= $comment['nom'].$comment['prenom']  ?></p>
+                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden"><?= $commentor->nom.$commentor->prenom  ?></p>
                                             <a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a>
                                         </div>
-                                        <p class="text-gray-400 text-sm"><?= $comment['created_at'] ?></p>
+                                        <p class="text-gray-400 text-sm"><?= $comment->created_at ?></p>
                                     </div>
                                 </div>
-                                <p class="-mt-4 text-gray-500"><?= $comment['content'] ?></p>
+                                <p class="-mt-4 text-gray-500"><?= $comment->content ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div>

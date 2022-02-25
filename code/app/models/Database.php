@@ -71,14 +71,15 @@ class DataName
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    // public function getByColumnValues($column, $values){
-    //     $con = self::connection();
-    //     $placeholders = implode(",", array_fill(0, count($values), "?"));
-    //     $requi = "SELECT * FROM " . $this->Table . " WHERE $column in ($placeholders) ";
-    //     $stmt = $con->prepare($requi);
-    //     $stmt->execute($values);
-    //     return $stmt->fetchAll(PDO::FETCH_OBJ);
-    // }
+
+    public function getByColumnValues($column, $values){
+        $con = self::connection();
+        $placeholders = implode(",", array_fill(0, count($values), "?"));
+        $requi = "SELECT * FROM " . $this->Table . " WHERE $column in ($placeholders) ";
+        $stmt = $con->prepare($requi);
+        $stmt->execute($values);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 
 
     protected function  getPlaceholders($arr)
@@ -102,21 +103,21 @@ class DataName
         $con = self::connection();
 
         $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ")";
-        // $requi = "INSERT INTO " . $this->Table . "(P_prophile,pre) VALUES (" . $this->getPlaceholders($data) . ")";
         $stat = $con->prepare($requi);
         $stat->execute($data) or die($stat->errorCode());
     }
 
-    public function getTableComentAndUser()
-    {
+
+
+
+    public function delette($id){
         $con = self::connection();
-        $requi = "SELECT user_.prenom , user_.nom ,user_.P_prophile , comments.created_at , comments.content 
-       FROM user_ 
-       INNER JOIN comments
-       ON user_.id = comments.user_id
-       order by comments.id desc;";
-       $stm = $con->prepare($requi);
-       $stm->execute();
-       return $resu = $stm->fetchAll(PDO::FETCH_ASSOC);
+        $requit = "DELETE FROM ".$this->Table. " WHERE $id";
+        $stm =  $con->prepare($requit);
+        $stm->execute();
     }
+
+
+
+
 }

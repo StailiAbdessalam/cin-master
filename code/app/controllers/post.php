@@ -37,40 +37,57 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
 
 $newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
+if(count($les_posts) > 0){
 
-// $userIds = [];
-// $postIds = [];
-// $usersData = new DataName('user_');
-// $commentsData = new DataName('comments');
-// foreach ($les_posts as $post) {
-//     // $postIds[$post["id"]] = true;
-//     $userIds[$post["user_id"]] = true;
-// }
-// $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
-// $commentsListByPostId = [];
-// foreach ($comments as $comment) {
-//     $postId = $comment->post_id;
-//     $userId = $comment->user_id;
-//     $userIds[$userId] = true;
-//     if (!isset($commentsListByPostId[$postId])) {
-//         $commentsListByPostId[$postId] = [];
-//     }
-//     $commentsListByPostId[$postId][] = $comment;
-// }
-// $users = $usersData->getByIds(array_keys($userIds));
-// $usersMapById = [];
-// foreach ($users as $user) {
-//     $usersMapById[$user->id] = $user;
-// }
+
 
 $userIds = [];
+$postIds = [];
 $usersData = new DataName('user_');
+$commentsData = new DataName('comments');
 foreach ($les_posts as $post) {
+    $postIds[$post["id"]] = true;
     $userIds[$post["user_id"]] = true;
-} 
+}
+
+
+$comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
+$commentsListByPostId = [];
+foreach ($comments as $comment) {
+    $postId = $comment->post_id;
+    $userId = $comment->user_id;
+    $userIds[$userId] = true;
+    if (!isset($commentsListByPostId[$postId])) {
+        $commentsListByPostId[$postId] = [];
+    }
+    $commentsListByPostId[$postId][] = $comment;
+}
+
 
 $users = $usersData->getByIds(array_keys($userIds));
 $usersMapById = [];
 foreach ($users as $user) {
     $usersMapById[$user->id] = $user;
 }
+};
+
+
+
+// $userIds = [];
+// $usersData = new DataName('user_');
+// foreach ($les_posts as $post) {
+//     $userIds[$post["user_id"]] = true;
+// } 
+
+// $users = $usersData->getByIds(array_keys($userIds));
+// $usersMapById = [];
+// foreach ($users as $user) {
+//     $usersMapById[$user->id] = $user;
+// }
+
+
+
+
+
+// $delet = new DataName("posts");
+// $delet->delette($_SESSION["iid"]);
