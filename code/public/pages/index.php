@@ -7,7 +7,6 @@ require_once "../../app/controllers/dashbord.php";
 // if(!isset($_SESSION['id'],$_SESSION['img'])){
 // header("Location: ../../public/pages/login.php");
 // }
-
 ?>
 
 <head>

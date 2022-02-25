@@ -1,13 +1,12 @@
-<?php
+<?php 
+require_once "../models/Database.php";
 
-require_once "../../app/models/Database.php";
-$N_comm = new DataName("comments");
-if (isset($_POST["content"])) {
+if(isset($_POST['content'])){
     session_start();
-    $_POST["user_id"] = $_SESSION["id"];
-    $N_comm->insert($_POST);
-    header("location:../../public/pages/post.php");
+    $_POST["user_id"]=$_SESSION['id'];
+
+    $new_comment = new DataName("comments");
+    $new_comment->insert($_POST);
+    header("Location:../../public/pages/post.php");
+
 }
-$afiich_comment = new DataName("comments");
-// $comments = $afiich_comment->selectAll();
-$array_comments = $afiich_comment->getTableComentAndUser();
