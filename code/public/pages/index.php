@@ -7,7 +7,11 @@ require_once "../../app/controllers/dashbord.php";
 
 ?>
 
- 
+  
+  
+  
+  
+
 
 <head>
     <meta charset="UTF-8">
