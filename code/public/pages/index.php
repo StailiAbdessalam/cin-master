@@ -48,7 +48,9 @@ require_once "../../app/controllers/dashbord.php";
                 </a>
                 <p>Post</p>
             </div>
-
+ 
+             
+            
             <div class="nav-bar__icon">
                 <a href="./admin.php">
                 <i class='bx bx-shield-alt' style='color:#ffffff'></i>
