@@ -52,6 +52,7 @@ foreach ($les_posts as $post) {
     $postIds[$post["id"]] = true;
     $userIds[$post["user_id"]] = true;
 }
+  
 
 
 $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
