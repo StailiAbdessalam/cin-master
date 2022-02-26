@@ -65,6 +65,10 @@ foreach ($comments as $comment) {
     }
     $commentsListByPostId[$postId][] = $comment;
 }
+ 
+
+ 
+
 
 
 $users = $usersData->getByIds(array_keys($userIds));
