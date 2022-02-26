@@ -54,6 +54,7 @@ foreach ($les_posts as $post) {
 }
   
 
+  
 
 $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
 $commentsListByPostId = [];
