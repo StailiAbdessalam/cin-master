@@ -26,7 +26,6 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
             move_uploaded_file($tmp_name, $img_upload_path);
             $_POST['photo'] = $new_img_name;
             $_POST['user_id'] = $_SESSION['id'];
-            
             $n_post = new DataName('posts');
             $n_post->insert(array_remove(["partager"], $_POST));
             header("location:../../public/pages/post.php");
