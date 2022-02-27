@@ -2,11 +2,8 @@
 class DataName
 {
     protected $id;
-    protected $Table;   
-      
+    protected $Table;
 
-  
-    
     function __construct($A)
     {
         $this->Table = $A;
@@ -75,7 +72,8 @@ class DataName
     }
 
 
-    public function getByColumnValues($column, $values){
+    public function getByColumnValues($column, $values)
+    {
         $con = self::connection();
         $placeholders = implode(",", array_fill(0, count($values), "?"));
         $requi = "SELECT * FROM " . $this->Table . " WHERE $column in ($placeholders) ";
@@ -113,14 +111,11 @@ class DataName
 
 
 
-    public function delette($id){
+    public function delette($id)
+    {
         $con = self::connection();
-        $requit = "DELETE FROM ".$this->Table. " WHERE $id";
+        $requit = "DELETE FROM " . $this->Table . " WHERE $id";
         $stm =  $con->prepare($requit);
         $stm->execute();
     }
-
-
-
-
 }
