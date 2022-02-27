@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start(); ?>
+<?php session_start();
+if (count($_SESSION) == 0) {
+    header("location:./login.php");
+} ?>
 
 <head>
     <meta charset="UTF-8">

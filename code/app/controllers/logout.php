@@ -1,5 +1,6 @@
 <?php
-if(isset($_SESSION)){
-session_destroy();
-}
-header("Location: ../../public/pages/login.php");
+session_start();
+
+    session_unset();
+    var_dump($_SESSION);
+    header("Location: ../../public/pages/login.php");

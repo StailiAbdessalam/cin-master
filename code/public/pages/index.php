@@ -4,6 +4,9 @@
 <?php
 session_start();
 require_once "../../app/controllers/dashbord.php";
+if(count($_SESSION)==0){
+    header("location:./login.php");
+}
 
 ?>
 

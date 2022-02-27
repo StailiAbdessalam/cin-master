@@ -66,13 +66,13 @@
 
 .nav-bar__profil img {
   margin-top: 19px;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   border-radius: 100%;
 }
 
 .nav-bar__profil p {
-  font-size: 22px;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
 }
 

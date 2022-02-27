@@ -15,6 +15,9 @@
 <body>
     <?php require_once "../../app/controllers/post.php";
     // require_once "../../app/controllers/comments.php";
+    if(count($_SESSION)==0){
+        header("location:./login.php");
+    }
     ?>
 
     <header>
