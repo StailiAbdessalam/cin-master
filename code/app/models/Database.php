@@ -2,7 +2,8 @@
 class DataName
 {
     protected $id;
-    protected $Table;
+    protected $Table;   
+      
 
     function __construct($A)
     {
