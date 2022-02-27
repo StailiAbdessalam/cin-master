@@ -4,8 +4,9 @@ class DataName
     protected $id;
     protected $Table;   
       
-    
 
+  
+    
     function __construct($A)
     {
         $this->Table = $A;
