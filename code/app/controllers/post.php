@@ -36,10 +36,11 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
         }
     } 
        
-    
-}
-  
 
+}
+      
+    
+    
 
 
 $newpost = new DataName('posts');
