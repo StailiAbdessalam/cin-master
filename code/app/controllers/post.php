@@ -34,7 +34,9 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
         } else {
             echo "you can't upload files of this type ";
         }
-    }
+    } 
+       
+    
 }
   
 
@@ -45,7 +47,7 @@ $les_posts = $newpost->selectAll();
 if(count($les_posts) > 0){
 
   
-    
+
 
 $userIds = [];
 $postIds = [];
