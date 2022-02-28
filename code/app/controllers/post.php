@@ -10,7 +10,7 @@ function array_remove($selections, $arr)
     }
     return $result;
      
-    
+
 }
 if (isset($_POST['partager'], $_FILES['photo'])) {
     $imag_name = $_FILES['photo']['name'];
@@ -36,6 +36,7 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
         }
     }
 }
+  
 
 
 
