@@ -92,7 +92,7 @@ class DataName
     }
 
    
-    
+
     protected function  getval($arr)
     {
         return implode(",", array_map(function ($key) {
@@ -110,7 +110,7 @@ class DataName
         $stat->execute($data) or die($stat->errorCode());
     }
 
-
+    
 
 
     public function delette($id)
