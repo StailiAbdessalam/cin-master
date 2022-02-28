@@ -2,11 +2,8 @@
 class DataName
 {
     protected $id;
-    protected $Table;   
-      
-       
-    
-
+    protected $Table;
+     
     function __construct($A)
     {
         $this->Table = $A;
@@ -63,6 +60,7 @@ class DataName
         $result = $stat->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
 
     public function getByIds($ids)
     {
