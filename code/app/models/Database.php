@@ -111,7 +111,8 @@ class DataName
     }
 
     
-
+   
+    
 
     public function delette($id)
     {
