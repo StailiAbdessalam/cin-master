@@ -41,7 +41,7 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
       
     
     
-
+    
 
 $newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
@@ -61,6 +61,7 @@ foreach ($les_posts as $post) {
   
 
   
+   
 
 $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
 $commentsListByPostId = [];
