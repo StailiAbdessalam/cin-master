@@ -126,10 +126,13 @@ class DataName
     public function update($data, $idUP)
     {
         $con = self::connection();
-        $requi = "UPDATE " . $this->Table . "SET `categorie`=':categorie' WHERE $idUP";
+        // $requi = "UPDATE " . $this->Table . "SET `categorie`=':categorie' WHERE $idUP";
         // $requi = "UPDATE INTO" . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
-        $requi = "UPDATE INTO" . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
+        $requi = "UPDATE  INTO  " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
+        var_dump($requi);
+        echo "<br>";
         $stat = $con->prepare($requi);
+        var_dump($stat);
         $stat->execute($data) or die($stat->errorCode());
     }
 }

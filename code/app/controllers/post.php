@@ -67,7 +67,6 @@ if (isset($_POST["delete"])) {
     $delete->delette($_POST["deleteId"]);
     header("location:../../public/pages/post.php");
 }
-var_dump($_SESSION["upchange"]);
     if (isset($_POST["FORMUPDATE"])) {
         $updat = new DataName("posts");
         $updat->update(array_remove(["FORMUPDATE", "photo","user_id","title","description"],$_POST),$_SESSION["upchange"]);
