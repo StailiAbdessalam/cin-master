@@ -275,11 +275,30 @@ main {
   font-size: 50px;
 }
 
+.crude {
+  width: 18%;
+}
+
+.crude .dropdown-item {
+  background-color: rgba(34, 90, 34, 0.993);
+  width: 100%;
+  height: 30px;
+  color: white;
+}
+
+.crude .dropdown-ite {
+  background-color: #aa3c3c;
+  width: 100%;
+  height: 30px;
+  color: white;
+}
+
 @media (max-width: 666px) {
   .nav-bar {
     display: none;
   }
   .nav-choix {
+    width: 91%;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -304,6 +323,10 @@ main {
   }
   .post .post__footer i {
     font-size: 38px;
+  }
+  .post .post__indi {
+    width: 86%;
+    margin-top: 140px;
   }
 }
 
@@ -438,5 +461,99 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.692);
+  width: 60vw;
+  height: 60vh;
+  position: fixed;
+  top: 22%;
+  left: 25%;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+}
+
+.popup i {
+  font-size: 30px;
+  position: absolute;
+  top: 13%;
+  right: 13%;
+}
+
+.popup .post__indi {
+  width: 40%;
+  height: 250px;
+  background-color: #52065f6e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+}
+
+.popup .post__indi form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 10px;
+}
+
+.popup .post__indi form select,
+.popup .post__indi form input {
+  height: 50px;
+  background-color: #ffffff;
+  outline: none;
+  border: 1px solid #47194e;
+  border-radius: 10px;
+}
+
+.popup .post__indi form ::-webkit-file-upload-button {
+  background-color: #47194e;
+  padding: 12px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.popup .post__indi form #hh {
+  background-color: #47194e;
+  color: white;
+  border: 1px solid white;
+}
+
+@media (max-width: 666px) {
+  .popup {
+    height: 100%;
+  }
+  .popup .post__indi {
+    width: 86%;
+    margin-top: 140px;
+  }
+}
+
+.popuppp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.abv {
+  display: none;
 }
 /*# sourceMappingURL=post.css.map */

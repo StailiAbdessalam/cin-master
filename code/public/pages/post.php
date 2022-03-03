@@ -15,7 +15,7 @@
 <body>
     <?php require_once "../../app/controllers/post.php";
     // require_once "../../app/controllers/comments.php";
-    if(count($_SESSION)==0){
+    if (count($_SESSION) == 0) {
         header("location:./login.php");
     }
     ?>
@@ -80,12 +80,23 @@
 
 
 
-            <?php foreach ($les_posts as $post) : 
+            <?php foreach ($les_posts as $post) :
                 $user = $usersMapById[$post["user_id"]];
                 $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
-                ?>
+                $_SESSION["upchange"]= $post["id"];
+
+            ?>
                 <section class="prent">
                     <div class='flex max-w-xl my-6 bg-white shadow-md rounded-lg overflow-hidden mx-10 w-screen'>
+                        <!-- <i class='bx bx-dots-horizontal-rounded'></i> -->
+                        <form action="../../app/controllers/post.php" method="POST" class="crude">
+                            <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
+                                <input class="dropdown-item" type="text" name="update" value="Update">
+                                <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
+                                <input type="submit" class="dropdown-ite" name="delete" value="Delete"> 
+                            <?php } ?>
+                        </form>
+
                         <div class='flex items-center w-full'>
                             <div class='w-full'>
                                 <div class="flex flex-row mt-2 px-2 py-3 mx-3">
@@ -125,7 +136,7 @@
                                         </span>
                                         <span class="transition ease-out duration-300 hover:bg-blue-500 bg-blue-600 h-8 px-2 py-2 text-center rounded-full text-gray-100 cursor-pointer">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                             </svg>
                                         </span>
                                     </div>
@@ -137,10 +148,6 @@
                                         <div class='flex text-gray-700 font-normal text-sm rounded-md mb-2 mr-4 items-center'>Views: <div class="ml-1 text-gray-400 font-thin text-ms"> 60k</div>
                                         </div>
                                     </div>
-                                    <div class="mt-3 mx-5 w-full flex justify-end">
-                                        <div class='flex text-gray-700 font-normal text-sm rounded-md mb-2 mr-4 items-center'>Likes: <div class="ml-1 text-gray-400 font-thin text-ms"> 120k</div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
                                     <img class='w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer' alt='User avatar' src="../../app/prophile_img/<?= $_SESSION['img'] ?>">
@@ -148,7 +155,7 @@
                                         <input type="hidden" name="user_id" id="">
                                         <input type="hidden" name="post_id" id="" value="<?= $post["id"] ?>">
                                         <input type="text" name="content" required class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment...">
-                                        <div class="comm">voir comment</div>
+                                        <div class="comm">Voir</div>
                                     </form>
                                 </div>
                             </div>
@@ -156,15 +163,15 @@
                     </div>
 
                     <div class="tach">
-                        <?php foreach ($commentList as $comment) : 
+                        <?php foreach ($commentList as $comment) :
                             $commentor = $usersMapById[$comment->user_id];
-                            ?>
-                            <div class="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full" id="hhh">
+                        ?>
+                            <div class="relative grid grid-cols-1 gap-4 my-8 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full" id="hhh">
                                 <div class="relative flex gap-4">
-                                    <img src="../../app/prophile_img/<?= $commentor->P_prophile?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
+                                    <img src="../../app/prophile_img/<?= $commentor->P_prophile ?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
                                     <div class="flex flex-col w-full">
                                         <div class="flex flex-row justify-between">
-                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden"><?= $commentor->nom.$commentor->prenom  ?></p>
+                                            <p class="relative text-xl whitespace-nowrap truncate overflow-hidden"><?= $commentor->nom . $commentor->prenom  ?></p>
                                             <a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a>
                                         </div>
                                         <p class="text-gray-400 text-sm"><?= $comment->created_at ?></p>
@@ -179,6 +186,25 @@
 
         </div>
     </main>
+
+
+
+    <section class="popup">
+    <i id="close" class='bx bx-x' style='color:#ffffff'  ></i>
+        <div class="post__indi">
+            <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="photo">
+                <input type="text" name="title" placeholder="Title" id="">
+                <input type="text" name="description" placeholder="description" id="">
+                <input type="hidden" name="user_id">
+                <select name="categorie" id="">
+                    <option value="Film">film</option>
+                    <option value="Serie">serie</option>
+                </select>
+                <input type="submit" name="FORMUPDATE" value="partager" id="hh">
+            </form>
+        </div>
+    </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

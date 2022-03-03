@@ -3,7 +3,7 @@ class DataName
 {
     protected $id;
     protected $Table;
-     
+
     function __construct($A)
     {
         $this->Table = $A;
@@ -91,7 +91,7 @@ class DataName
         }, array_keys($arr)));
     }
 
-   
+
 
     protected function  getval($arr)
     {
@@ -105,20 +105,31 @@ class DataName
     {
         $con = self::connection();
 
-        $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ")";
+        $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
         $stat = $con->prepare($requi);
         $stat->execute($data) or die($stat->errorCode());
     }
 
-    
-   
-    
+
+
+
 
     public function delette($id)
     {
         $con = self::connection();
-        $requit = "DELETE FROM " . $this->Table . " WHERE $id";
+        $requit = "DELETE FROM " . $this->Table . " WHERE id=$id";
         $stm =  $con->prepare($requit);
         $stm->execute();
+    }
+
+
+    public function update($data, $idUP)
+    {
+        $con = self::connection();
+        $requi = "UPDATE " . $this->Table . "SET `categorie`=':categorie' WHERE $idUP";
+        // $requi = "UPDATE INTO" . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
+        $requi = "UPDATE INTO" . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
+        $stat = $con->prepare($requi);
+        $stat->execute($data) or die($stat->errorCode());
     }
 }
