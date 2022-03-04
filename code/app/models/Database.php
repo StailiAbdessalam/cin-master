@@ -126,7 +126,7 @@ class DataName
     public function update($data, $idUP)
     {
         $con = self::connection();
-        $requi = "UPDATE `posts` SET `photo`='".$data["photo"]."',`description`='".$data["description"]."',`title`='".$data["title"]."',`categorie`='".$data["categorie"]."' WHERE 1";
+        $requi = "UPDATE `posts` SET `photo`='".$data["photo"]."',`description`='".$data["description"]."',`title`='".$data["title"]."',`categorie`='".$data["categorie"]."' WHERE $idUP";
         // $requi = "UPDATE INTO" . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
         // $requi = "UPDATE  INTO  " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") WHERE $idUP";
         var_dump($requi);
