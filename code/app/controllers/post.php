@@ -68,10 +68,6 @@ if (isset($_POST["delete"])) {
     header("location:../../public/pages/post.php");
 }
 if (isset($_POST["FORMUPDATE"])) {
-    $updat = new DataName("posts");
-    $updat->update(array_remove(["FORMUPDATE", "photo", "user_id"], $_POST), $_SESSION["upchange"]);
-    header("location:../../public/pages/post.php");
-
     $imag_name = $_FILES['photo']['name'];
     $imag_size = $_FILES['photo']['size'];
     $tmp_name = $_FILES['photo']['tmp_name'];
