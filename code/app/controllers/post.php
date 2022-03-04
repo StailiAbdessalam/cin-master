@@ -67,9 +67,31 @@ if (isset($_POST["delete"])) {
     $delete->delette($_POST["deleteId"]);
     header("location:../../public/pages/post.php");
 }
-    if (isset($_POST["FORMUPDATE"])) {
-        $updat = new DataName("posts");
-        $updat->update(array_remove(["FORMUPDATE", "photo","user_id","title","description"],$_POST),$_SESSION["upchange"]);
-        header("location:../../public/pages/post.php");
-    }
+if (isset($_POST["FORMUPDATE"])) {
+    $updat = new DataName("posts");
+    $updat->update(array_remove(["FORMUPDATE", "photo", "user_id"], $_POST), $_SESSION["upchange"]);
+    header("location:../../public/pages/post.php");
 
+    $imag_name = $_FILES['photo']['name'];
+    $imag_size = $_FILES['photo']['size'];
+    $tmp_name = $_FILES['photo']['tmp_name'];
+    if ($imag_size > 12500000) {
+        echo "sorry , your file is too large ";
+    } else {
+        $img_ex = pathinfo($imag_name, PATHINFO_EXTENSION);
+        $img_ex_lc = strtolower($img_ex);
+        $allowed_exs = array("jpg", "jpeg", "png");
+        if (in_array($img_ex_lc, $allowed_exs)) {
+            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+            $img_upload_path = '../post_user/' . $new_img_name;
+            move_uploaded_file($tmp_name, $img_upload_path);
+            $_POST['photo'] = $new_img_name;
+            $_POST['user_id'] = $_SESSION['id'];
+            $updat = new DataName("posts");
+            $updat->update(array_remove(["FORMUPDATE","user_id"], $_POST), $_SESSION["upchange"]);
+            header("location:../../public/pages/post.php");
+        } else {
+            echo "you can't upload files of this type ";
+        }
+    }
+}
