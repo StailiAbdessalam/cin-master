@@ -83,7 +83,7 @@
             <?php foreach ($les_posts as $post) :
                 $user = $usersMapById[$post["user_id"]];
                 $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
-                $_SESSION["upchange"]= $post["id"];
+                
 
             ?>
                 <section class="prent">
@@ -92,6 +92,7 @@
                         <form action="../../app/controllers/post.php" method="POST" class="crude">
                             <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
                                 <input class="dropdown-item" type="text" name="update" value="Update">
+                                <?php $_SESSION["upchange"]= $post["id"];?>
                                 <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
                                 <input type="submit" class="dropdown-ite" name="delete" value="Delete"> 
                             <?php } ?>
