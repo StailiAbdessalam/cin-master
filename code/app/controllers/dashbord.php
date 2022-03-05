@@ -1,6 +1,5 @@
 <?php
 require_once "../../app/models/Database.php";
-
 function array_remove($selections, $arr)
 {
     $result = $arr;
@@ -9,15 +8,11 @@ function array_remove($selections, $arr)
     }
     return $result;
 }
+if (isset($_POST['submit'], $_FILES['image_url'])) {
 
-if (isset($_POST['submit'],$_FILES['image_url'])) {
-   
     $imag_name = $_FILES['image_url']['name'];
     $imag_size = $_FILES['image_url']['size'];
     $tmp_name = $_FILES['image_url']['tmp_name'];
-
-
-
     if ($imag_size > 1250000) {
         echo "sorry , your file is too large ";
     } else {
