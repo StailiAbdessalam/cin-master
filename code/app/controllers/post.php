@@ -1,7 +1,6 @@
 <?php
 require_once "../../app/models/Database.php";
 session_start();
-
 function array_remove($selections, $arr)
 {
     $result = $arr;
@@ -85,7 +84,7 @@ if (isset($_POST["FORMUPDATE"])) {
             $_POST['user_id'] = $_SESSION['id'];
             var_dump($_SESSION["upchange"]);
             $updat = new DataName("posts");
-            $updat->update(array_remove(["FORMUPDATE","user_id"], $_POST), $_SESSION["upchange"]);
+            $updat->update(array_remove(["FORMUPDATE", "user_id"], $_POST), $_SESSION["upchange"]);
             header("location:../../public/pages/post.php");
         } else {
             echo "you can't upload files of this type ";
