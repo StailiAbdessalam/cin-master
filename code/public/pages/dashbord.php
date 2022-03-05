@@ -15,7 +15,6 @@ if (count($_SESSION) == 0) {
 </head>
 
 <body>
-
     <header>
         <div class="nav-bar">
             <div class="nav-bar__logo">
@@ -47,7 +46,7 @@ if (count($_SESSION) == 0) {
                 <p>Admin</p>
             </div>
             <div class="nav-bar__icon">
-                <a href="./login.php">
+                <a href="../../app/controllers/logout.php">
                     <i class='bx bx-log-out' style='color:#ffffff'></i>
                 </a>
                 <p>Quiter</p>
@@ -63,9 +62,6 @@ if (count($_SESSION) == 0) {
             <input type="submit" name="submit" id="">
         </form>
     </div>
-
-
-
 </body>
 
 </html>

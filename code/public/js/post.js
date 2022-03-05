@@ -18,9 +18,7 @@ popup.forEach((t) => {
       .classList.remove("abv");
   });
 });
-
 close.addEventListener("click", () => {
   document.querySelector(".popup").classList.toggle("abv");
   document.querySelector(".popup").classList.remove("popuppp");
-
 });

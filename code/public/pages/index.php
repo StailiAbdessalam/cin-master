@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
 session_start();
 require_once "../../app/controllers/dashbord.php";
-if(count($_SESSION)==0){
+if (count($_SESSION) == 0) {
     header("location:./login.php");
 }
-
 ?>
-
-
-
-
-  
-
 
 <head>
     <meta charset="UTF-8">
@@ -35,7 +27,7 @@ if(count($_SESSION)==0){
             </div>
             <div class="nav-bar__profil">
                 <img src="<?= "../../app/prophile_img/" . $_SESSION['img'] ?>" class="ab">
-                <p><a><?= $_SESSION["nom"]." ". $_SESSION["prenom"]?></a></p>
+                <p><a><?= $_SESSION["nom"] . " " . $_SESSION["prenom"] ?></a></p>
             </div>
         </div>
         <div class="nav-choix">
@@ -51,12 +43,9 @@ if(count($_SESSION)==0){
                 </a>
                 <p>Post</p>
             </div>
- 
-             
-            
             <div class="nav-bar__icon">
                 <a href="./admin.php">
-                <i class='bx bx-shield-alt' style='color:#ffffff'></i>
+                    <i class='bx bx-shield-alt' style='color:#ffffff'></i>
                 </a>
                 <p>Admin</p>
             </div>
@@ -68,9 +57,6 @@ if(count($_SESSION)==0){
             </div>
         </div>
     </header>
-
-
-
     <main class="film">
         <?php foreach ($filmdb as $fil) : ?>
             <div class="film__post">
@@ -78,13 +64,8 @@ if(count($_SESSION)==0){
                 <h3><?= $fil["Nam"]; ?></h3>
             </div>
         <?php endforeach; ?>
-
-
     </main>
-
-
-
-    <footer class="py-3 mt-2"  id="respo">
+    <footer class="py-3 mt-2" id="respo">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="./index.php" class="nav-link px-2 text-light">Film</a></li>
             <li class="nav-item"><a href="./post.php" class="nav-link px-2 text-light">Post</a></li>
@@ -94,8 +75,6 @@ if(count($_SESSION)==0){
         </ul>
         <p class="text-center text-light">© 2021 Company, Inc</p>
     </footer>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

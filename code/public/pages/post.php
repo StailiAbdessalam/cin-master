@@ -44,7 +44,6 @@
                 </a>
                 <p>Post</p>
             </div>
-
             <div class="nav-bar__icon">
                 <a href="./admin.php">
                     <i class='bx bx-shield-alt' style='color:#ffffff'></i>
@@ -52,16 +51,14 @@
                 <p>Admin</p>
             </div>
             <div class="nav-bar__icon">
-                <a href="./login.php">
+                <a href="../../app/controllers/logout.php">
                     <i class='bx bx-log-out' style='color:#ffffff'></i>
                 </a>
-                <a href="./login.php"> Quiter</a>
+                <a href="../../app/controllers/logout.php"> Quiter</a>
             </div>
         </div>
     </header>
     <main>
-
-
         <div class="post">
             <div class="post__indi">
                 <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
@@ -76,15 +73,9 @@
                     <input type="submit" name="partager" value="partager" id="hh">
                 </form>
             </div>
-
-
-
-
             <?php foreach ($les_posts as $post) :
                 $user = $usersMapById[$post["user_id"]];
                 $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
-
-
             ?>
                 <section class="prent">
                     <div class='flex max-w-xl my-6 bg-white shadow-md rounded-lg overflow-hidden mx-10 w-screen'>
@@ -92,12 +83,11 @@
                         <form action="../../app/controllers/post.php" method="POST" class="crude">
                             <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
                                 <input class="dropdown-item" type="text" name="update" value="Update">
-                                <?php $_SESSION["upchange"] = $post["id"]?>
+                                <?php $_SESSION["upchange"] = $post["id"] ?>
                                 <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
                                 <input type="submit" class="dropdown-ite" name="delete" value="Delete">
-                                <?php } ?>
-                            </form>
-
+                            <?php } ?>
+                        </form>
                         <div class='flex items-center w-full'>
                             <div class='w-full'>
                                 <div class="flex flex-row mt-2 px-2 py-3 mx-3">
@@ -113,8 +103,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                      
-                                    
                                 </div>
                                 <div class="border-b border-gray-100"></div>
                                 <div class='text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2 '><img class="rounded w-full" src="../../app/post_user/<?= $post['photo'] ?>"></div>
@@ -130,7 +118,7 @@
                                         <img class="inline-block object-cover w-8 h-8 text-white border-2 border-white rounded-full shadow-sm cursor-pointer" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                                         <img class="inline-block object-cover w-8 h-8 -ml-2 text-white border-2 border-white rounded-full shadow-sm cursor-pointer" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="" />
                                         <img class="inline-block object-cover w-8 h-8 -ml-2 text-white border-2 border-white rounded-full shadow-sm cursor-pointer" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" />
-                                    </div>
+                                    </div>  
                                     <div class="flex justify-end w-full mt-1 pt-2 pr-5">
                                         <span class="transition ease-out duration-300 hover:bg-blue-50 bg-blue-100 h-8 px-2 py-2 text-center rounded-full text-blue-400 cursor-pointer mr-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
@@ -164,7 +152,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="tach">
                         <?php foreach ($commentList as $comment) :
                             $commentor = $usersMapById[$comment->user_id];
@@ -205,9 +192,6 @@
 
         </div>
     </main>
-
-
-
     <!-- <section class="popup">
     <i id="close" class='bx bx-x' style='color:#ffffff'  ></i>
         <div class="post__indi">
@@ -224,8 +208,6 @@
             </form>
         </div>
     </section> -->
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="../js/post.js"></script>
 </body>
