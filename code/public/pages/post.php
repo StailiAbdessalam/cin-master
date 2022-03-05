@@ -113,6 +113,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                      
+                                    
                                 </div>
                                 <div class="border-b border-gray-100"></div>
                                 <div class='text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2 '><img class="rounded w-full" src="../../app/post_user/<?= $post['photo'] ?>"></div>
