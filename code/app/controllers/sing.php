@@ -18,7 +18,6 @@ function array_remove($selections, $arr)
 }
 require_once "../../app/models/Database.php";
 if (isset($_POST['submit'], $_FILES['P_prophile'])) {
-
     $imag_name = $_FILES['P_prophile']['name'];
     $imag_size = $_FILES['P_prophile']['size'];
     $tmp_name = $_FILES['P_prophile']['tmp_name'];
