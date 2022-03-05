@@ -83,6 +83,7 @@ if (isset($_POST["FORMUPDATE"])) {
             move_uploaded_file($tmp_name, $img_upload_path);
             $_POST['photo'] = $new_img_name;
             $_POST['user_id'] = $_SESSION['id'];
+            var_dump($_SESSION["upchange"]);
             $updat = new DataName("posts");
             $updat->update(array_remove(["FORMUPDATE","user_id"], $_POST), $_SESSION["upchange"]);
             header("location:../../public/pages/post.php");

@@ -83,7 +83,7 @@
             <?php foreach ($les_posts as $post) :
                 $user = $usersMapById[$post["user_id"]];
                 $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
-                
+
 
             ?>
                 <section class="prent">
@@ -92,11 +92,11 @@
                         <form action="../../app/controllers/post.php" method="POST" class="crude">
                             <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
                                 <input class="dropdown-item" type="text" name="update" value="Update">
-                                <?php $_SESSION["upchange"]= $post["id"];?>
+                                <?php $_SESSION["upchange"] = $post["id"]?>
                                 <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
-                                <input type="submit" class="dropdown-ite" name="delete" value="Delete"> 
-                            <?php } ?>
-                        </form>
+                                <input type="submit" class="dropdown-ite" name="delete" value="Delete">
+                                <?php } ?>
+                            </form>
 
                         <div class='flex items-center w-full'>
                             <div class='w-full'>
@@ -183,6 +183,22 @@
                         <?php endforeach; ?>
                     </div>
                 </section>
+                <section class="popup">
+                    <i id="close" class='bx bx-x' style='color:#ffffff'></i>
+                    <div class="post__indi">
+                        <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="photo">
+                            <input type="text" name="title" placeholder="Title" id="">
+                            <input type="text" name="description" placeholder="description" id="">
+                            <input type="hidden" name="user_id">
+                            <select name="categorie" id="">
+                                <option value="Film">film</option>
+                                <option value="Serie">serie</option>
+                            </select>
+                            <input type="submit" name="FORMUPDATE" value="partager" id="hh">
+                        </form>
+                    </div>
+                </section>
             <?php endforeach; ?>
 
         </div>
@@ -190,7 +206,7 @@
 
 
 
-    <section class="popup">
+    <!-- <section class="popup">
     <i id="close" class='bx bx-x' style='color:#ffffff'  ></i>
         <div class="post__indi">
             <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
@@ -205,7 +221,7 @@
                 <input type="submit" name="FORMUPDATE" value="partager" id="hh">
             </form>
         </div>
-    </section>
+    </section> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
