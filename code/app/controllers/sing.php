@@ -8,7 +8,6 @@
 //     }
 //     return $result;
 // }
-
 function array_remove($selections, $arr)
 {
     $result = $arr;
@@ -17,7 +16,6 @@ function array_remove($selections, $arr)
     }
     return $result;
 }
-
 require_once "../../app/models/Database.php";
 if (isset($_POST['submit'], $_FILES['P_prophile'])) {
 
@@ -36,7 +34,7 @@ if (isset($_POST['submit'], $_FILES['P_prophile'])) {
             move_uploaded_file($tmp_name, $img_upload_path);
             $_POST['P_prophile'] = $new_img_name;
             $N_film = new DataName("user_");
-            $N_film->insert((array_remove(["submit","C_Password"],$_POST)));
+            $N_film->insert((array_remove(["submit", "C_Password"], $_POST)));
             header("location:../../public/pages/login.php");
         } else {
             echo "you can't upload files of this type ";
