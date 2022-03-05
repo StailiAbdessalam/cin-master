@@ -1,11 +1,9 @@
-<?php 
+<?php
 require_once "../../app/models/Database.php";
-
 if (isset($_POST['submit'])) {
     $email = $_POST['Gmail'];
     $Password = $_POST['password'];
 }
-
 $admi = new DataName("admin");
 $admin = $admi->selectADmin();
 foreach ($admin as $oo) {
@@ -15,5 +13,3 @@ foreach ($admin as $oo) {
         header("location:../../public/pages/admin.php");
     }
 }
-
-
