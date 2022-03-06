@@ -77,6 +77,8 @@
                 $user = $usersMapById[$post["user_id"]];
                 $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
             ?>
+
+
                 <section class="prent">
                     <div class='flex max-w-xl my-6 bg-white shadow-md rounded-lg overflow-hidden mx-10 w-screen'>
                         <!-- <i class='bx bx-dots-horizontal-rounded'></i> -->
