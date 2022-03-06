@@ -82,7 +82,7 @@
                         <!-- <i class='bx bx-dots-horizontal-rounded'></i> -->
                         <form action="../../app/controllers/post.php" method="POST" class="crude">
                             <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
-                                <input class="dropdown-item" type="text" name="update" value="Update">
+                                <input class="dropdown-item" type="button" name="update" value="Update">
                                 <?php $_SESSION["upchange"] = $post["id"] ?>
                                 <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
                                 <input type="submit" class="dropdown-ite" name="delete" value="Delete">
@@ -118,7 +118,7 @@
                                         <img class="inline-block object-cover w-8 h-8 text-white border-2 border-white rounded-full shadow-sm cursor-pointer" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                                         <img class="inline-block object-cover w-8 h-8 -ml-2 text-white border-2 border-white rounded-full shadow-sm cursor-pointer" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="" />
                                         <img class="inline-block object-cover w-8 h-8 -ml-2 text-white border-2 border-white rounded-full shadow-sm cursor-pointer" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" />
-                                    </div>  
+                                    </div>
                                     <div class="flex justify-end w-full mt-1 pt-2 pr-5">
                                         <span class="transition ease-out duration-300 hover:bg-blue-50 bg-blue-100 h-8 px-2 py-2 text-center rounded-full text-blue-400 cursor-pointer mr-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
