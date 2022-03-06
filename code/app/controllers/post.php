@@ -60,8 +60,7 @@ if (count($les_posts) > 0) {
     foreach ($users as $user) {
         $usersMapById[$user->id] = $user;
     }
-} 
-   
+}
 if (isset($_POST["delete"])) {
     $delete = new DataName("posts");
     $delete->delette($_POST["deleteId"]);
