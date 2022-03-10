@@ -8,6 +8,11 @@
 //     }
 //     return $result;
 // }
+
+
+
+  
+
 function array_remove($selections, $arr)
 {
     $result = $arr;
