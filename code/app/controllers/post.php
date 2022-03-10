@@ -13,28 +13,25 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
     $imag_name = $_FILES['photo']['name'];
     $imag_size = $_FILES['photo']['size'];
     $tmp_name = $_FILES['photo']['tmp_name'];
-    if ($imag_size > 12500000) {
-        echo "sorry , your file is too large ";
+    $img_ex = pathinfo($imag_name, PATHINFO_EXTENSION);
+    $img_ex_lc = strtolower($img_ex);
+    $allowed_exs = array("jpg", "jpeg", "png");
+    if (in_array($img_ex_lc, $allowed_exs)) {
+        $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+        $img_upload_path = '../post_user/' . $new_img_name;
+        move_uploaded_file($tmp_name, $img_upload_path);
+        $_POST['photo'] = $new_img_name;
+        $_POST['user_id'] = $_SESSION['id'];
+        $n_post = new DataName('posts');
+        $n_post->insert(array_remove(["partager"], $_POST));
+        header("location:../../public/pages/post.php");
     } else {
-        $img_ex = pathinfo($imag_name, PATHINFO_EXTENSION);
-        $img_ex_lc = strtolower($img_ex);
-        $allowed_exs = array("jpg", "jpeg", "png");
-        if (in_array($img_ex_lc, $allowed_exs)) {
-            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-            $img_upload_path = '../post_user/' . $new_img_name;
-            move_uploaded_file($tmp_name, $img_upload_path);
-            $_POST['photo'] = $new_img_name;
-            $_POST['user_id'] = $_SESSION['id'];
-            $n_post = new DataName('posts');
-            $n_post->insert(array_remove(["partager"], $_POST));
-            header("location:../../public/pages/post.php");
-        } else {
-            echo "you can't upload files of this type ";
-        }
+        echo "you can't upload files of this type ";
     }
 }
 $newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
+
 if (count($les_posts) > 0) {
     $userIds = [];
     $postIds = [];
@@ -44,6 +41,7 @@ if (count($les_posts) > 0) {
         $postIds[$post["id"]] = true;
         $userIds[$post["user_id"]] = true;
     }
+    // comment = les ids des post no repiter 
     $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
     $commentsListByPostId = [];
     foreach ($comments as $comment) {
@@ -84,7 +82,7 @@ if (isset($_POST["FORMUPDATE"])) {
             $_POST['user_id'] = $_SESSION['id'];
             var_dump($_SESSION["upchange"]);
             $updat = new DataName("posts");
-            $updat->update(array_remove(["FORMUPDATE", "user_id"], $_POST), $_SESSION["upchange"]);
+            $updat->update(array_remove(["FORMUPDATE", "user_id", "upup"], $_POST), $_POST["upup"]);
             header("location:../../public/pages/post.php");
         } else {
             echo "you can't upload files of this type ";
