@@ -82,12 +82,13 @@
                         <!-- <i class='bx bx-dots-horizontal-rounded'></i> -->
                         <form action="../../app/controllers/post.php" method="POST" class="crude">
                             <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
-                                <input class="dropdown-item" type="button" name="update" value="Update">
+                                <input class="dropdown-item" type="submit" name="update" value="Update">
                                 <?php $_SESSION["upchange"] = $post["id"] ?>
                                 <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
                                 <input type="submit" class="dropdown-ite" name="delete" value="Delete">
                             <?php } ?>
                         </form>
+
                         <div class='flex items-center w-full'>
                             <div class='w-full'>
                                 <div class="flex flex-row mt-2 px-2 py-3 mx-3">
@@ -97,7 +98,6 @@
                                     <div class="flex flex-col mb-2 ml-4 mt-1">
                                         <div class='text-gray-600 text-sm font-semibold'><?= $user->nom . " " . $user->prenom ?></div>
                                         <div class='flex w-full mt-1'>
-
                                             <div class='text-gray-400 font-thin text-xs'>
                                                 • <?= $post['created_at'] ?>
                                             </div>
@@ -143,8 +143,9 @@
                                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
                                     <img class='w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer' alt='User avatar' src="../../app/prophile_img/<?= $_SESSION['img'] ?>">
                                     <form action="../../app/controllers/comments.php" method="POST" class="commentss">
-                                        <input type="hidden" name="user_id" id="">
+                                        <input type="hidden" name="user_id" id="" value="<?= $_SESSION['id']?>">
                                         <input type="hidden" name="post_id" id="" value="<?= $post["id"] ?>">
+                                        <!-- input pour pzadùoheùfhpihfiphzf  jeo -->
                                         <input type="text" name="content" required class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment...">
                                         <div class="comm">Voir</div>
                                     </form>
@@ -172,33 +173,17 @@
                         <?php endforeach; ?>
                     </div>
                 </section>
-                <section class="popup">
-                    <i id="close" class='bx bx-x' style='color:#ffffff'></i>
-                    <div class="post__indi">
-                        <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="photo">
-                            <input type="text" name="title" placeholder="Title" id="">
-                            <input type="text" name="description" placeholder="description" id="">
-                            <input type="hidden" name="user_id">
-                            <select name="categorie" id="">
-                                <option value="Film">film</option>
-                                <option value="Serie">serie</option>
-                            </select>
-                            <input type="submit" name="FORMUPDATE" value="partager" id="hh">
-                        </form>
-                    </div>
-                </section>
             <?php endforeach; ?>
-
         </div>
     </main>
-    <!-- <section class="popup">
-    <i id="close" class='bx bx-x' style='color:#ffffff'  ></i>
+    <section class="popup">
+        <i id="close" class='bx bx-x' style='color:#ffffff'></i>
         <div class="post__indi">
             <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="photo">
                 <input type="text" name="title" placeholder="Title" id="">
                 <input type="text" name="description" placeholder="description" id="">
+                <input type="hidden" value="" name="upup" id="gug">
                 <input type="hidden" name="user_id">
                 <select name="categorie" id="">
                     <option value="Film">film</option>
@@ -207,9 +192,10 @@
                 <input type="submit" name="FORMUPDATE" value="partager" id="hh">
             </form>
         </div>
-    </section> -->
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="../js/post.js"></script>
+    <script src="../js/comment_ajax.js"></script>
 </body>
 
 </html>

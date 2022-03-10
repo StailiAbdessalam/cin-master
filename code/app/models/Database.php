@@ -52,6 +52,7 @@ class DataName
         $result = $stat->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+    
     public function getByIds($ids)
     {
         $con = self::connection();
@@ -61,6 +62,9 @@ class DataName
         $stmt->execute($ids);
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+
+
+
     public function getByColumnValues($column, $values)
     {
         $con = self::connection();
@@ -70,6 +74,9 @@ class DataName
         $stmt->execute($values);
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+
+
+
     protected function  getPlaceholders($arr)
     {
         return implode(",", array_map(function ($key) {
