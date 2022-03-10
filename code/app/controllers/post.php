@@ -31,7 +31,6 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
 }
 $newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
-
 if (count($les_posts) > 0) {
     $userIds = [];
     $postIds = [];
