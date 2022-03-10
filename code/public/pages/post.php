@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
                                     <img class='w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer' alt='User avatar' src="../../app/prophile_img/<?= $_SESSION['img'] ?>">
-                                    <form action="../../app/controllers/comments.php" method="POST" class="commentss">
+                                    <form action="" method="POST" class="commentss">
                                         <input type="hidden" name="user_id" id="" value="<?= $_SESSION['id']?>">
                                         <input type="hidden" name="post_id" id="" value="<?= $post["id"] ?>">
                                         <!-- input pour pzadùoheùfhpihfiphzf  jeo -->
