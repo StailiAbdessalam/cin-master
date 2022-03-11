@@ -36,4 +36,4 @@ forms.forEach(form => {
     fT.value=idInput.value;
   })
 })
-                     
+
