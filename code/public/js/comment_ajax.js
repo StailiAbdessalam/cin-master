@@ -4,8 +4,8 @@ myform.forEach((taha) => {
   taha.addEventListener("submit", (ta) => {
     ta.preventDefault();
     const formData = new FormData(taha);
-    const postId = formData.get("post_id")
-    const post = document.querySelector(`.prent[data-id='${postId}']`)
+    const postId = formData.get("post_id");
+    const post = document.querySelector(`.prent[data-id='${postId}']`);
     const commentList = post.querySelector(".tach");
 
     const searchParaps = new URLSearchParams();
@@ -40,7 +40,7 @@ myform.forEach((taha) => {
         // taha.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector(
         //   ".tach"
         // ).innerHTML += comment;
-        commentList.innerHTML= comment + commentList.innerHTML;
+        commentList.innerHTML = comment + commentList.innerHTML;
       })
       .catch((erour) => console.log(erour));
   });
