@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../style/post.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <title>cine master</title>
 </head>
 
@@ -77,7 +82,7 @@
                 $user = $usersMapById[$post["user_id"]];
                 $commentList = $commentsListByPostId[$post["id"] ?? null] ?? [];
             ?>
-                <section class="prent" data-id="<?= $post["id"] ?>">
+                <section  class="prent" data-id="<?= $post["id"] ?>">
                     <div class='flex max-w-xl my-6 bg-white shadow-md rounded-lg overflow-hidden mx-10 w-screen'>
                         <!-- <i class='bx bx-dots-horizontal-rounded'></i> -->
                         <form action="../../app/controllers/post.php" method="POST" class="crude">

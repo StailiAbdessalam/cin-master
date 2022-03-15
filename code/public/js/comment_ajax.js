@@ -1,5 +1,6 @@
 const myform = document.querySelectorAll(".commentss");
 const comm = document.querySelector(".tach");
+
 myform.forEach((taha) => {
   taha.addEventListener("submit", (ta) => {
     ta.preventDefault();
@@ -8,13 +9,14 @@ myform.forEach((taha) => {
     const post = document.querySelector(`.prent[data-id='${postId}']`);
     const commentList = post.querySelector(".tach");
 
-    const searchParaps = new URLSearchParams();
-    for (const pair of formData) {
-      searchParaps.append(pair[0], pair[1]);
-    }
+    // const searchParaps = new URLSearchParams();
+    
+    // for (const pair of formData) {
+    //   searchParaps.append(pair[0], pair[1]);
+    // }
     fetch("../../app/controllers/comments.php", {
       method: "post",
-      body: searchParaps,
+      body: formData,
     })
       .then((Response) => {
         return Response.json();
@@ -41,6 +43,7 @@ myform.forEach((taha) => {
         //   ".tach"
         // ).innerHTML += comment;
         commentList.innerHTML = comment + commentList.innerHTML;
+        
       })
       .catch((erour) => console.log(erour));
   });

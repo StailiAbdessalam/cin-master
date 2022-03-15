@@ -35,8 +35,10 @@ $les_posts = $newpost->selectAll();
 if (count($les_posts) > 0) {
     $userIds = [];
     $postIds = [];
+
     $usersData = new DataName('user_');
     $commentsData = new DataName('comments');
+
     foreach ($les_posts as $post) {
         $postIds[$post["id"]] = true;
         $userIds[$post["user_id"]] = true;

@@ -25,9 +25,6 @@ close.addEventListener("click", () => {
 fT.value="";
 });
 
-
-
-
 const forms = document.querySelectorAll(".crude");
 forms.forEach(form => {
   form.addEventListener("submit", (e) => {

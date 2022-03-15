@@ -7,7 +7,6 @@ class DataName
     {
         $this->Table = $A;
     }
-    // conection pdo
     static function connection()
     {
         $dbn = "mysql:dbname=cene master;local=localhost";
