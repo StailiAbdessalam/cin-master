@@ -52,7 +52,7 @@ class DataName
         $result = $stat->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    
+
     public function getByIds($ids)
     {
         $con = self::connection();
@@ -112,12 +112,12 @@ class DataName
         $stat = $con->prepare($requi);
         $stat->execute() or die($stat->errorCode());
     }
-    public function getcomment(){
+    public function getcomment()
+    {
         $con = self::connection();
         $requi = "SELECT * FROM " . $this->Table . " order by id desc limit 1;";
         $stm = $con->prepare($requi);
         $stm->execute();
         return $stm->fetch(PDO::FETCH_ASSOC);
-
     }
 }
