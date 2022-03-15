@@ -86,6 +86,7 @@ class DataName
     {
         return implode(",", array_map(function ($key) {
             return "$key";
+            
         }, array_keys($arr)));
     }
     public function insert($data)
