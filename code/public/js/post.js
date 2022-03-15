@@ -29,7 +29,6 @@ const forms = document.querySelectorAll(".crude");
 forms.forEach(form => {
   form.addEventListener("submit", (e) => {
     const idInput = form.querySelector("input[name='deleteId']")
-    e.preventDefault();
     fT.value=idInput.value;
   })
 })
