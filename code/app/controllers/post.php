@@ -1,14 +1,7 @@
 <?php
 require_once "../../app/models/Database.php";
+require_once "../../app/library/function.php";
 session_start();
-function array_remove($selections, $arr)
-{
-    $result = $arr;
-    foreach ($selections as $selection) {
-        unset($result[$selection]);
-    }
-    return $result;
-}
 if (isset($_POST['partager'], $_FILES['photo'])) {
     $imag_name = $_FILES['photo']['name'];
     $imag_size = $_FILES['photo']['size'];
@@ -29,22 +22,20 @@ if (isset($_POST['partager'], $_FILES['photo'])) {
         echo "you can't upload files of this type ";
     }
 }
+
+// la partie qui contient la logique de api ...
 $newpost = new DataName('posts');
 $les_posts = $newpost->selectAll();
-
 if (count($les_posts) > 0) {
     $userIds = [];
     $postIds = [];
-
     $usersData = new DataName('user_');
     $commentsData = new DataName('comments');
-
     foreach ($les_posts as $post) {
         $postIds[$post["id"]] = true;
         $userIds[$post["user_id"]] = true;
     }
-    // comment = les ids des post no repiter 
-    $comments = $commentsData->getByColumnValues("post_id", array_keys($postIds));
+    $comments = $commentsData->getByColumnValues("post_id",array_keys($postIds));
     $commentsListByPostId = [];
     foreach ($comments as $comment) {
         $postId = $comment->post_id;

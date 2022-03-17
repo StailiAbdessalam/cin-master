@@ -1,14 +1,6 @@
 <?php
 require_once "../../app/models/Database.php";
-function array_remove($selections, $arr)
-{
-    $result = $arr;
-    foreach ($selections as $selection) {
-        unset($result[$selection]);
-    }
-    return $result;
-}
-
+require_once "../../app/library/function.php";
 if (isset($_POST['submit'], $_FILES['image_url'])) {
     $imag_name = $_FILES['image_url']['name'];
     $imag_size = $_FILES['image_url']['size'];
