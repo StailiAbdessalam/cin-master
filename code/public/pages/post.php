@@ -19,7 +19,7 @@
 
 <body>
     <?php require_once "../../app/controllers/post.php";
-    // require_once "../../app/controllers/comments.php";
+    
     if (count($_SESSION) == 0) {
         header("location:./login.php");
     }
@@ -90,7 +90,13 @@
                                 <input class="dropdown-item" type="submit" name="update" value="Update">
                                 <?php $_SESSION["upchange"] = $post["id"] ?>
                                 <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
+                            <?php } ?>
+                        </form>
+                        <form action="../../app/controllers/post.php" method="POST" class="crud">
+                            <?php if (($post["user_id"]) === ($_SESSION["id"])) { ?>
+                                <?php $_SESSION["upchange"] = $post["id"] ?>
                                 <input type="submit" class="dropdown-ite" name="delete" value="Delete">
+                                <input type="hidden" name="deleteId" value="<?= $post["id"] ?>">
                             <?php } ?>
                         </form>
 
@@ -111,8 +117,8 @@
                                 </div>
                                 <div class="border-b border-gray-100"></div>
                                 <div class='text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2 '><img class="rounded w-full" src="../../app/post_user/<?= $post['photo'] ?>"></div>
-                                <div class='text-gray-600 font-semibold text-lg mb-2 mx-3 px-2'><?php echo $post['title'] . " : " ?></div>
-                                <div class='text-gray-500 font-thin text-sm mb-6 mx-3 px-2'><?php echo $post['description'] ?></div>
+                                <div class='text-gray-600 font-semibold text-lg mb-2 mx-3 px-2' id="A1"><?php echo $post['title'] . " : " ?></div>
+                                <div class='text-gray-500 font-thin text-sm mb-6 mx-3 px-2'  id="A2" ><?php echo $post['description'] ?></div>
                                 <div class="flex justify-start mb-4 border-t border-gray-100">
                                     <div class="flex w-full mt-1 pt-2 pl-5">
                                         <span class="bg-white transition ease-out duration-300 hover:text-red-500 border w-8 h-8 px-2 pt-2 text-center rounded-full text-gray-400 cursor-pointer mr-2">
@@ -139,7 +145,7 @@
                                 </div>
                                 <div class="flex w-full border-t border-gray-100">
                                     <div class="mt-3 mx-5 flex flex-row">
-                                        <div class='flex text-gray-700 font-normal text-sm rounded-md mb-2 mr-4 items-center'>Comments:<div class="ml-1 text-gray-400 font-thin text-ms"> 30</div>
+                                        <div  class='flex text-gray-700 font-normal text-sm rounded-md mb-2 mr-4 items-center'>Comments:<div id="countplusone" class="ml-1 text-gray-400 font-thin text-ms" > <?= count($commentList);?></div>
                                         </div>
                                         <div class='flex text-gray-700 font-normal text-sm rounded-md mb-2 mr-4 items-center'>Views: <div class="ml-1 text-gray-400 font-thin text-ms"> 60k</div>
                                         </div>
@@ -151,7 +157,7 @@
                                         <input type="hidden" name="user_id" id="" value="<?= $_SESSION['id'] ?>">
                                         <input type="hidden" name="post_id" id="" value="<?= $post["id"] ?>">
                                         <!-- input pour pzadùoheùfhpihfiphzf  jeo -->
-                                        <input type="text" name="content" required class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment...">
+                                        <input type="text" id="annuler" name="content" required class="w-96 py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment...">
                                         <div class="comm">Voir</div>
                                     </form>
                                 </div>
@@ -164,8 +170,8 @@
                         ?>
                             <div class="relative grid grid-cols-1 gap-4 my-8 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full" id="hhh">
                                 <div class="relative flex gap-4">
-                                    <img src="../../app/prophile_img/<?= $commentor->P_prophile ?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
-                                    <div class="flex flex-col w-full">
+                                    <img id="p_comments" src="../../app/prophile_img/<?= $commentor->P_prophile ?>" class="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy">
+                                    <div class="flex flex-col w-full ">
                                         <div class="flex flex-row justify-between">
                                             <p class="relative text-xl whitespace-nowrap truncate overflow-hidden"><?= $commentor->nom . $commentor->prenom  ?></p>
                                             <a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a>
@@ -186,7 +192,7 @@
         <div class="post__indi">
             <form action="../../app/controllers/post.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="photo">
-                <input type="text" name="title" placeholder="Title" id="">
+                <input type="text" name="title" placeholder="Title" id="" value="">
                 <input type="text" name="description" placeholder="description" id="">
                 <input type="hidden" value="" name="upup" id="gug">
                 <input type="hidden" name="user_id">

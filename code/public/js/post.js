@@ -22,14 +22,14 @@ const fT = document.querySelector("#gug");
 close.addEventListener("click", () => {
   document.querySelector(".popup").classList.toggle("abv");
   document.querySelector(".popup").classList.remove("popuppp");
-fT.value="";
+  fT.value = "";
 });
 
 const forms = document.querySelectorAll(".crude");
-forms.forEach(form => {
+forms.forEach((form) => {
   form.addEventListener("submit", (e) => {
-    const idInput = form.querySelector("input[name='deleteId']")
-    fT.value=idInput.value;
-  })
-})
-
+    const idInput = form.querySelector("input[name='deleteId']");
+    e.preventDefault();
+    fT.value = idInput.value;
+  });
+});
